@@ -2,6 +2,7 @@
 *.png
 *.jpg
 *.hdf5
+*.zip
 logs/
 results/
 train_logs/
