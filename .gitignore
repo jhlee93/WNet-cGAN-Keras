@@ -4,6 +4,7 @@
 *.hdf5
 logs/
 results/
+train_logs/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
