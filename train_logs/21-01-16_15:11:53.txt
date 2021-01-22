@@ -1,8 +1,0 @@
-
-# Parser option
-Namespace(batch=16, data='/home/ubuntu/project/seoul/dataset/sample_dataset/tile_dsm', dicr_epoch=5, gen_epoch=10, round=50)
-
-# Dataset
-train=837
-valid=92
-test=0
