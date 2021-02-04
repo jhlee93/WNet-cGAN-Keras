@@ -4,6 +4,7 @@
 *.hdf5
 *.zip
 logs/
+logs_*/
 results/
 train_logs/
 
