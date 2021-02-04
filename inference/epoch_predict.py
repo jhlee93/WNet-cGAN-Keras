@@ -34,7 +34,7 @@ Multi Image Test
 
 def image_list_test():
     # Weights path
-    W = '../results/gen/weights-300.hdf5'
+    W = '../results/gen/weights-2180.hdf5'
     # Get tif list
     dsm_list = sorted([x for x in glob('./sample/DSM/*.tif')])
     pan_list = sorted([x for x in glob('./sample/PAN/*.tif')])

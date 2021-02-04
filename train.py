@@ -20,7 +20,7 @@ data_folder = args.data
 data = Data(data_folder)
 
 # split to train, validation, test
-dsm_train, pan_train, label_train, dsm_vld, pan_vld, label_vld, dsm_tst, pan_tst, label_tst = data.split_trn_vld_tst()
+dsm_train, pan_train, label_train, dsm_vld, pan_vld, label_vld, dsm_tst, pan_tst, label_tst = data.split_trn_vld_tst(vld_rate=0.15)
 
 # create two generators: for training and for validation
 train_gen = DataGenerator(dsm_train, pan_train, label_train, pred_fn=None, batch_size=8, 
@@ -41,5 +41,5 @@ myModel.build_wnet_cgan([64,64,128,128],
                         discr_lr=1e-4,
                         lambda_=1e-1)
 
-myModel.fit_wnet_cgan(train_gen, valid_gen, adv_epochs=50, gen_epochs=100,
+myModel.fit_wnet_cgan(train_gen, valid_gen, adv_epochs=20, gen_epochs=50,
                      adv_steps_epoch=50, gen_steps_epoch=100, n_rounds=80)

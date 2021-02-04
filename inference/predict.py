@@ -132,6 +132,14 @@ pp_ = t.reshape(W_hat_ary.shape)
 # None Scaling
 pp_ = W_hat_ary
 
+# DSM base Scaling
+# print("Input DSM Mean : {}, Output DSM Mean : {}".format(np.mean(ary_dsm), np.mean(W_hat_ary)))
+# dsm_max = np.max(ary_dsm)
+# inf_max = np.max(W_hat_ary)
+# scale_factor = dsm_max / inf_max
+# pp_ = W_hat_ary * scale_factor
+
+
 with rasterio.open(out_path, 'w', **meta) as rr:
     rr.write(pp_[:pad[0]-h_pad[1], :pad[1]-w_pad[1],0].astype(np.float32),1)
 print('\tpost processing time ... ', time() - post_proc_time)

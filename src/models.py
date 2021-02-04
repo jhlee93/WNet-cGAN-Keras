@@ -17,6 +17,8 @@ from keras.callbacks import ModelCheckpoint
 import tensorflow as tf
 from keras.callbacks import TensorBoard
 
+def root_mean_squared_error(y_true, y_pred):
+    return K.sqrt(K.mean(K.square(y_pred - y_true)))
 
 class Wnet_cgan:
     def __init__(self,
@@ -85,7 +87,8 @@ class Wnet_cgan:
       
         #compile the wnet
         self.wnet.compile(wnet_opt,
-                          loss = 'binary_crossentropy',
+                          # loss = 'binary_crossentropy',
+                          loss = root_mean_squared_error,
                           metrics=['accuracy'])  # maybe change to mIoU?
 
         print('Wnet Built and Compiled') 
@@ -102,7 +105,8 @@ class Wnet_cgan:
         # compile it
         print('compiling the stcaked')
         self.wnet_cgan.compile(wnet_opt,
-                               loss=['binary_crossentropy', 'binary_crossentropy'],
+                               # loss=['binary_crossentropy', 'binary_crossentropy'],
+                               loss=[root_mean_squared_error, root_mean_squared_error],
                                loss_weights=[1., lambda_],
                                metrics=['accuracy'])
         print('compiled')
